@@ -7,6 +7,7 @@ class  Article extends Component {
 
     render() {
         return(
+            //Prueba Git
             <article>
             <main>
                 <img src="./img/image-default.png" alt=""/>
