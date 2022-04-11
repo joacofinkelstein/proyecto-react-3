@@ -15,15 +15,26 @@ class Main extends Component {
       .then((result) => result.json())
       .then((resultado) => {
         console.log(resultado);
+        console.log(resultado.data[0].title);
         this.setState({
           tracks: resultado.data,
         });
       })
       .catch((e) => console.log(e));
   }
+  borrar(id){
+    let filteredTracks = [];
+    filteredTracks = this.state.tracks.filter( track => track.id !== id );
 
+    this.setState({
+        tracks: filteredTracks
+    })
+}
   render() {
-    return <Article data={this.state.tracks} />;
+    return (
+      this.state.tracks.map( (track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={ (id)=>this.borrar(id) } />)
+
+    )
   }
 }
 

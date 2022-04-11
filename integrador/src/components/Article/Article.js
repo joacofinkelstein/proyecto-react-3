@@ -1,30 +1,50 @@
 import React, { Component } from 'react';
-class  Article extends Component {
+import "./Article.css"
+class Article extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            text: "Ver mas",
+            showing: false,
+            descClassName: "hidden"
+        }
     }
 
-  
+    showDescription() {
+        if (!this.state.showing) {
+            this.setState({
+                text: "Ver menos",
+                showing: true,
+                descClassName: "show"
+            })
+        } else {
+            this.setState({
+                text: "Ver mas",
+                showing: false,
+                descClassName: "hidden"
+            })
+        }
+
+
+    }
 
     render() {
-        return(
+        return (
             //Prueba Git
             <article>
-            <main>
-                <img src="./img/image-default.png" alt=""/>
-                <h3>{this.props.data.title}</h3>
-                <p class="description">Laaaaaaaaaipsum dolor sit amet consectetur adipisicing elit. Sint cumque velit minus facere
-                    laboriosam voluptatem impedit ea unde labore optio eius quis, dignissimos expedita. Culpa, soluta
-                    perspiciatis! Sint, laboriosam cum.</p>
-                <section class="aditional-info">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
-                </section>
-                <a href="">Ver más</a>
-            </main>
-        </article>);
+                <main>
+                    <img src={this.props.dataTrack.album.cover} alt="" />
+                    <button onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}>Eliminar</button>
+                    <h3>{this.props.dataTrack.title}</h3>
+                    <p className="description">{this.props.dataTrack.artist.name}</p>
+                    <section className={this.state.descClassName}>
+                        <p>Album : {this.props.dataTrack.album.title}</p>
+                        <p>Duration : {this.props.dataTrack.duration}</p>
+                        <p>Ranking : {this.props.dataTrack.rank}</p>
+                    </section>
+                    <a className="descButton" onClick={()=> this.showDescription()}>{this.state.text}</a>
+                </main>
+            </article>);
     }
 }
 

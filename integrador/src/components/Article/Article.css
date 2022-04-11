@@ -1,0 +1,13 @@
+article{
+    border: 1px solid black;
+    margin: auto;
+}
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}
+.descButton{
+    cursor: pointer;
+}
