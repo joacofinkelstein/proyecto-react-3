@@ -5,13 +5,15 @@ class  Article extends Component {
         this.state = {  }
     }
 
+  
+
     render() {
         return(
             //Prueba Git
             <article>
             <main>
                 <img src="./img/image-default.png" alt=""/>
-                <h3>Título/ Nombre</h3>
+                <h3>{this.props.data.title}</h3>
                 <p class="description">Laaaaaaaaaipsum dolor sit amet consectetur adipisicing elit. Sint cumque velit minus facere
                     laboriosam voluptatem impedit ea unde labore optio eius quis, dignissimos expedita. Culpa, soluta
                     perspiciatis! Sint, laboriosam cum.</p>
