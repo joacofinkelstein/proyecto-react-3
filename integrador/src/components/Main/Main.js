@@ -66,7 +66,7 @@ class Main extends Component {
     return (
       <div>
         <FilterField filtrarTracks={(textoAFiltrar)=>this.filtrarTracks(textoAFiltrar)}/>
-        <div className=''>
+        <div className='row containerTracks'>
           {
             this.state.tracks.map( (track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={ (id)=>this.borrar(id) } />)
           }

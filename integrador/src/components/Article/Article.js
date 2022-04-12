@@ -30,22 +30,20 @@ class Article extends Component {
 
     render() {
         return (
-            //Prueba Git
-            <article>
-                <main>
-                    <img src={this.props.dataTrack.album.cover} alt="" />
-                    <button onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}>Eliminar</button>
-                    <h3>{this.props.dataTrack.title}</h3>
-                    <p className="description">{this.props.dataTrack.artist.name}</p>
-                    <section className={this.state.descClassName}>
-                        <p>Album : {this.props.dataTrack.album.title}</p>
-                        <p>Duration : {this.props.dataTrack.duration}</p>
-                        <p>Ranking : {this.props.dataTrack.rank}</p>
-                    </section>
-                    <a className="descButton" onClick={()=> this.showDescription()}>{this.state.text}</a>
-                </main>
-            </article>);
-    }
+            
+            <div className='card cardC shadow mb-4'>
+                <button onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}>Eliminar</button>
+                <img src={this.props.dataTrack.album.cover} alt="" />
+                <h3>{this.props.dataTrack.title}</h3>
+                <p className="description">{this.props.dataTrack.artist.name}</p>
+                <section className={this.state.descClassName}>
+                    <p>Album : {this.props.dataTrack.album.title}</p>
+                    <p>Duration : {this.props.dataTrack.duration}</p>
+                    <p>Ranking : {this.props.dataTrack.rank}</p>
+                </section>
+                <a className="descButton" onClick={()=> this.showDescription()}>{this.state.text}</a>
+            </div>   
+        )}
 }
 
 export default Article;
