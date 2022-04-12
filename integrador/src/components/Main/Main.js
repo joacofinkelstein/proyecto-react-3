@@ -7,19 +7,20 @@ class Main extends Component {
     super(props);
     this.state = {
       tracks: [],
+      next: 0,
     };
   }
 
   componentDidMount() {
     fetch(
-      "https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=10"
+      `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/${this.state.next}/tracks&top?limit=10`
     )
       .then((result) => result.json())
       .then((resultado) => {
         console.log(resultado);
-        console.log(resultado.data[0].title);
         this.setState({
           tracks: resultado.data,
+          next: this.state.next
         });
       })
       .catch((e) => console.log(e));
@@ -44,6 +45,20 @@ class Main extends Component {
     })
   }
   
+  pedirMas(){
+    let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/${this.state.next+ 2}/tracks&top?limit=10`
+    fetch(url)
+    .then (response=> response.json())
+    .then ((resultado)=>{
+      console.log(resultado);
+      this.setState({
+        tracks: this.state.tracks.concat(resultado.data),
+        next: this.state.next + 2
+      })
+    })
+    .catch(error => console.log(error))
+
+  }
 
 
 
@@ -56,6 +71,7 @@ class Main extends Component {
             this.state.tracks.map( (track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={ (id)=>this.borrar(id) } />)
           }
         </div>
+        <button type='button'onClick={()=>this.pedirMas()} >Pedir Mas</button>
       </div>
 
     )}
