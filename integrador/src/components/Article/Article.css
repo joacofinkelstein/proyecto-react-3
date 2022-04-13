@@ -11,3 +11,6 @@ article{
 .descButton{
     cursor: pointer;
 }
+.descButton:hover{
+    color: blue;
+}

@@ -1,3 +1,24 @@
+
+.App{
+  background-color: whitesmoke;
+  gap: 10px;
+}
+
+.header{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+.musica{
+  color:  rgb(78, 78, 255);
+}
+
+.containerT{
+  margin: 10px;
+}
 .card-container{
     margin-top: 20px;
     padding: 0 10px;
@@ -10,8 +31,29 @@
 
   .cardC{
     width: 24%;
-    padding: 5px;
+    padding: 10px;
+    background-color: rgb(59, 59, 117);
   }
   .containerTracks{
         gap: 10px;
   }
+
+  .cardC{
+    color: white;
+    display: flex;
+    gap: 5px;
+  }
+  .delete{
+    border-radius: 4px;
+    border: white;
+    justify-content: space-around;
+    margin-left: 88%;
+    align-items: center;
+    display: flex;
+    width: 30px;
+    height: 30px;
+  }
+  .delete:hover{
+    color: red;
+  }
+

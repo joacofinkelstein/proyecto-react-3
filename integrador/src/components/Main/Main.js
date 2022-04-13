@@ -64,7 +64,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div className='containerT'>
         <FilterField filtrarTracks={(textoAFiltrar)=>this.filtrarTracks(textoAFiltrar)}/>
         <div className='row containerTracks'>
           {
