@@ -31,7 +31,7 @@ class Article extends Component {
     render() {
         return (
             
-            <div className='card cardC shadow mb-4'>
+            <div className={this.props.articleClassName}>
                 <button className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}><i className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}className="fas bi fa-trash"></i></button>
                 <img src={this.props.dataTrack.album.cover} alt={this.props.dataTrack.title}/>
                 <h3 className='text'>{this.props.dataTrack.title}</h3>

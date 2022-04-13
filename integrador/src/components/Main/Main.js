@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import Article from "../Article/Article";
 import FilterField from '../FilterField/FilterField'
-
+import "./Main.css"
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tracks: [],
+      filteredTracks: [],
       next: 0,
+      loaded: false,
+      articleClassName: "columna"
     };
   }
 
@@ -20,43 +23,59 @@ class Main extends Component {
         console.log(resultado);
         this.setState({
           tracks: resultado.data,
-          next: this.state.next
+          filteredTracks: resultado.data,
+          next: this.state.next,
+          loaded: true
+
         });
       })
       .catch((e) => console.log(e));
   }
 
-  borrar(id){
-    let filteredTracks = [];
-    filteredTracks = this.state.tracks.filter( track => track.id !== id );
-
+  ordenColumna(){
     this.setState({
-      tracks: filteredTracks
+      articleClassName: "columna"
     })
   }
-  
-  filtrarTracks(textoAFiltrar){
+  ordenFila(){
+    this.setState({
+      articleClassName: "fila"
+    })
+  }
+
+  borrar(id) {
+    let filteredTracks = [];
+    filteredTracks = this.state.tracks.filter(track => track.id !== id);
+
+    this.setState({
+      tracks: filteredTracks,
+      filteredTracks: filteredTracks
+    })
+  }
+
+  filtrarTracks(textoAFiltrar) {
     let tracksFiltrados = []
 
-    tracksFiltrados = this.state.tracks.filter( track => track.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
+    tracksFiltrados = this.state.tracks.filter(track => track.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
 
     this.setState({
-        tracks: tracksFiltrados
+      filteredTracks: tracksFiltrados
     })
   }
-  
-  pedirMas(){
-    let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/${this.state.next+ 2}/tracks&top?limit=10`
+
+  pedirMas() {
+    let url = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/${this.state.next + 2}/tracks&top?limit=10`
     fetch(url)
-    .then (response=> response.json())
-    .then ((resultado)=>{
-      console.log(resultado);
-      this.setState({
-        tracks: this.state.tracks.concat(resultado.data),
-        next: this.state.next + 2
+      .then(response => response.json())
+      .then((resultado) => {
+        console.log(resultado);
+        this.setState({
+          tracks: this.state.filteredTracks.concat(resultado.data),
+          filteredTracks: this.state.filteredTracks.concat(resultado.data),
+          next: this.state.next + 2
+        })
       })
-    })
-    .catch(error => console.log(error))
+      .catch(error => console.log(error))
 
   }
 
@@ -65,16 +84,23 @@ class Main extends Component {
   render() {
     return (
       <div className='containerT'>
-        <FilterField filtrarTracks={(textoAFiltrar)=>this.filtrarTracks(textoAFiltrar)}/>
-        <div className='row containerTracks'>
-          {
-            this.state.tracks.map( (track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={ (id)=>this.borrar(id) } />)
-          }
-        </div>
-        <button type='button'onClick={()=>this.pedirMas()} >Pedir Mas</button>
+    <button type='button' onClick={() => this.ordenFila()} >Fila</button>
+    <button type='button' onClick={() => this.ordenColumna()} >Columna</button>
+  
+        <FilterField filtrarTracks={(textoAFiltrar) => this.filtrarTracks(textoAFiltrar)} />
+        {
+          this.state.loaded ? (<div className='row containerTracks'>
+            {
+              this.state.filteredTracks.map((track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={(id) => this.borrar(id)} articleClassName={this.state.articleClassName} />)
+            }
+          </div>) : <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        }
+
+        <button type='button' onClick={() => this.pedirMas()} >Pedir Mas</button>
       </div>
 
-    )}
+    )
+  }
 }
 
 

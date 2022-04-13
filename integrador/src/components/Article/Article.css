@@ -14,3 +14,15 @@ article{
 .descButton:hover{
     color: blue;
 }
+.columna{
+ width: 24%;
+ padding: 10px;
+    background-color: rgb(59, 59, 117);
+    color: white;
+}
+.fila{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(59, 59, 117);
+    color: white;
+}
