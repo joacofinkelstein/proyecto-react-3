@@ -68,10 +68,12 @@ class Main extends Component {
         <FilterField filtrarTracks={(textoAFiltrar)=>this.filtrarTracks(textoAFiltrar)}/>
         <div className='row containerTracks'>
           {
+            this.state.tracks.length === 0?
+            <p>Cargando...</p>:
             this.state.tracks.map( (track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={ (id)=>this.borrar(id) } />)
           }
         </div>
-        <button type='button'onClick={()=>this.pedirMas()} >Pedir Mas</button>
+        <button className='btn btn-outline-secondary' type='button'onClick={()=>this.pedirMas()} >Pedir Mas</button>
       </div>
 
     )}

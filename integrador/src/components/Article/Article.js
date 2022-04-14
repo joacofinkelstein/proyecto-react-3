@@ -31,15 +31,15 @@ class Article extends Component {
     render() {
         return (
             
-            <div className='card cardC shadow mb-4'>
+            <div className='zoom card cardC shadow mb-4'>
                 <button className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}><i className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}className="fas bi fa-trash"></i></button>
-                <img src={this.props.dataTrack.album.cover} alt={this.props.dataTrack.title}/>
+                <img src={this.props.dataTrack.album.cover_xl} alt={this.props.dataTrack.title}/>
                 <h3 className='text'>{this.props.dataTrack.title}</h3>
-                <p className="description">{this.props.dataTrack.artist.name}</p>
+                <h5 className="description artista">{this.props.dataTrack.artist.name}</h5>
                 <section className={this.state.descClassName}>
-                    <p>Album : {this.props.dataTrack.album.title}</p>
-                    <p>Duration : {this.props.dataTrack.duration}</p>
-                    <p>Ranking : {this.props.dataTrack.rank}</p>
+                    <p className='masInfo'>Album : {this.props.dataTrack.album.title}</p>
+                    <p className='masInfo'>Duration : {this.props.dataTrack.duration} seconds</p>
+                    <p className='masInfo'>Ranking : {this.props.dataTrack.rank}</p>
                 </section>
                 <p className="descButton" onClick={()=> this.showDescription()}>{this.state.text}</p>
             </div>   
