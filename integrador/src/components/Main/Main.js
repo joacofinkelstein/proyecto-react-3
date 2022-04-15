@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Article from "../Article/Article";
 import FilterField from '../FilterField/FilterField'
+import Header from '../Header/Header'
 
 class Main extends Component {
   constructor(props) {
@@ -8,6 +9,9 @@ class Main extends Component {
     this.state = {
       tracks: [],
       next: 0,
+      orient: 'Horizontal',
+      horizontal: true,
+      orientClassName: 'row containerT'
     };
   }
 
@@ -37,7 +41,7 @@ class Main extends Component {
   
   filtrarTracks(textoAFiltrar){
     let tracksFiltrados = []
-
+    
     tracksFiltrados = this.state.tracks.filter( track => track.title.toLowerCase().includes(textoAFiltrar.toLowerCase()))
 
     this.setState({
@@ -60,20 +64,43 @@ class Main extends Component {
 
   }
 
+  orient(){
+    if(!this.state.horizontal){
+        this.setState({
+            orient: 'Horizontal',
+            horizontal: true,
+            orientClassName: ''
+        })
+    } else{
+        this.setState({
+            orient: 'Vertical',
+            horizontal: false,
+            orientClassName: 'row containterT'
+        })
+    }
+}
 
 
   render() {
     return (
       <div className='containerT'>
-        <FilterField filtrarTracks={(textoAFiltrar)=>this.filtrarTracks(textoAFiltrar)}/>
-        <div className='row containerTracks'>
+        <div className='inputs'>
+          <FilterField filtrarTracks={(textoAFiltrar)=>this.filtrarTracks(textoAFiltrar)}/>
+          <div className='orientacion'>
+            <button className='btn btn-outline-danger' onClick={()=> this.orient()}type='button'>{this.state.orient}</button>
+          </div>
+        </div>
+        <div className={this.state.orientClassName}>
           {
             this.state.tracks.length === 0?
-            <p>Cargando...</p>:
+            <div className='container-fluid'>
+              <i class="fas fa-regular fa-spinner fa-spin "></i>
+              <p>Loading tracks...</p>
+            </div>:
             this.state.tracks.map( (track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={ (id)=>this.borrar(id) } />)
           }
         </div>
-        <button className='btn btn-outline-secondary' type='button'onClick={()=>this.pedirMas()} >Pedir Mas</button>
+        <button className='btn btn-outline-danger' type='button'onClick={()=>this.pedirMas()} >Pedir Mas</button>
       </div>
 
     )}
