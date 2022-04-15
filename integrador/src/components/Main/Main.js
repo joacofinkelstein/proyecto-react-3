@@ -9,7 +9,7 @@ class Main extends Component {
     this.state = {
       tracks: [],
       next: 0,
-      orient: 'Horizontal',
+      orient: <i class="fas fa-solid fa-bars"></i>,
       horizontal: true,
       orientClassName: 'row containerT'
     };
@@ -67,13 +67,13 @@ class Main extends Component {
   orient(){
     if(!this.state.horizontal){
         this.setState({
-            orient: 'Horizontal',
+            orient: <i class="fas fa-solid fa-border-all"></i>,
             horizontal: true,
-            orientClassName: ''
+            orientClassName: 'column containerT'
         })
     } else{
         this.setState({
-            orient: 'Vertical',
+            orient: <i class="fas fa-solid fa-bars"></i>,
             horizontal: false,
             orientClassName: 'row containterT'
         })

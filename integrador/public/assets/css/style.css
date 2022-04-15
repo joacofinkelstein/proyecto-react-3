@@ -26,6 +26,12 @@
 .containerT{
   margin: 10px;
 }
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+
 .inputs{
   display: flex;
   gap: 10px;
@@ -38,16 +44,14 @@
   width: 24%;
   padding: 10px;
   background-color: rgb(220,20,60);
+  color: white;
+  display: flex;
+  gap: 5px;
 }
 .containerTracks{
       gap: 10px;
 }
 
-.cardC{
-  color: white;
-  display: flex;
-  gap: 5px;
-}
 .delete{
   border-radius: 4px;
   border: white;

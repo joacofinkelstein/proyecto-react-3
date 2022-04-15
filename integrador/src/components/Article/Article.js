@@ -30,7 +30,6 @@ class Article extends Component {
 
     render() {
         return (
-            
             <div className='zoom card cardC shadow mb-4'>
                 <button className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}><i className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}className="fas bi fa-trash"></i></button>
                 <img src={this.props.dataTrack.album.cover_xl} alt={this.props.dataTrack.title}/>
