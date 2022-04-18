@@ -9,9 +9,9 @@ class  Footer extends Component {
     return(
         <footer className='header'>
             <ul class="team">
-                <li>Nombre integrante 1</li>
-                <li>Nombre integrante 2</li>
-                <li>Nombre integrante 3</li>
+                <li>Joaquin Finkelstein</li>
+                <li>Olivia Rozze</li>
+                <li>Teo Santilli Pazos</li>
             </ul>
         </footer> 
     )}

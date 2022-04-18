@@ -2,7 +2,7 @@ article{
     border: 1px solid black;
     margin: auto;
 }
- img{
+img{
     width: 100%;
 }
 .hidden{
@@ -19,12 +19,16 @@ article{
     cursor: pointer;
 }
 .descButton:hover{
-    color: blue;
+    color: grey;
+}
+.masInfo{
+    color: lightgrey;
+    font-style: italic;
 }
 .columna{
- width: 24%;
- padding: 10px;
-    background-color: rgb(59, 59, 117);
+    width: 24%;
+    padding: 10px;
+    background-color:  rgb(220,20,60);
     color: white;
 }
 .fila .contentArticle{
@@ -33,11 +37,18 @@ article{
 .fila{
     width: 100%;
     padding: 10px;
-    background-color: rgb(59, 59, 117);
+    background-color:  rgb(220,20,60);
     color: white;
     display: flex;
    
 }
 .fila img{
     width: 25%;
+}
+
+.botones{
+    margin: 5px;
+}
+.boton{
+    margin: 10px;
 }

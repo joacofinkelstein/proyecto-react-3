@@ -101,19 +101,22 @@ class Main extends Component {
   render() {
     return (
       <div className='containerT'>
-    <button type='button' onClick={() => this.ordenFila()} >Fila</button>
-    <button type='button' onClick={() => this.ordenColumna()} >Columna</button>
+        <div className='botones'>
+          <button type='button' className='boton btn btn-outline-danger' onClick={() => this.ordenFila()} ><i class="fas fa-solid fa-bars"></i></button>
+          <button type='button' className='boton btn btn-outline-danger' onClick={() => this.ordenColumna()} ><i class="fas fa-solid fa-border-all"></i></button>
+        </div>
   
         <FilterField filtrarTracks={(textoAFiltrar) => this.filtrarTracks(textoAFiltrar)} />
         {
-          this.state.loaded ? (<div className='row containerTracks'>
+          this.state.loaded ? 
+          <div className='row containerTracks'>
             {
               this.state.filteredTracks.map((track, idx) => <Article key={track.title + idx} dataTrack={track} borrarTrack={(id) => this.borrar(id)} articleClassName={this.state.articleClassName} />)
             }
-          </div>) : <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+          </div>: <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
         }
 
-        <button type='button' onClick={() => this.pedirMas()} >Pedir Mas</button>
+        <button type='button' className='boton btn btn-outline-danger' onClick={() => this.pedirMas()} >Pedir Mas</button>
       </div>
 
     )

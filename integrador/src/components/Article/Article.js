@@ -35,7 +35,7 @@ class Article extends Component {
                 <button className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}><i className='delete'onClick={ ()=>this.props.borrarTrack(this.props.dataTrack.id)}className="fas bi fa-trash"></i></button>
                     <img src={this.props.dataTrack.album.cover_xl} alt={this.props.dataTrack.title}/>
                 <div class="contentArticle">
-                    <h3 className='text'>{this.props.dataTrack.title}</h3>
+                    <h3 className='text'>{this.props.dataTrack.title_short}</h3>
                     <h5 className="description artista">{this.props.dataTrack.artist.name}</h5>
                     <div className={this.state.descClassName}>
                         <p className='masInfo'>Album : {this.props.dataTrack.album.title}</p>
