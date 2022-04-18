@@ -21,9 +21,9 @@ class FilterField extends Component{
 
     render(){
         return(
-            <div className='mb-4'>
+            <div className='shadow mb-4'>
                 <form onSubmit={(event)=>this.evitarDefault(event)}>
-                    <input onChange={(cambios)=>this.obtenerDatos(cambios)} className='form-control' type='text' name='usuario' placeholder='Buscar Tracks' value={this.state.value}/>
+                    <input onChange={(cambios)=>this.obtenerDatos(cambios)} className='form-control form-control-color-danger' type='text' name='usuario' placeholder='Buscar Tracks' value={this.state.value}/>
                 </form>
             </div>
         )

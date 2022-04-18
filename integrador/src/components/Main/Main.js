@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Article from "../Article/Article";
 import FilterField from '../FilterField/FilterField'
 import "./Main.css"
+import Header from '../Header/Header'
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -79,6 +81,21 @@ class Main extends Component {
 
   }
 
+  orient(){
+    if(!this.state.horizontal){
+        this.setState({
+            orient: <i class="fas fa-solid fa-border-all"></i>,
+            horizontal: true,
+            orientClassName: 'column containerT'
+        })
+    } else{
+        this.setState({
+            orient: <i class="fas fa-solid fa-bars"></i>,
+            horizontal: false,
+            orientClassName: 'row containterT'
+        })
+    }
+}
 
 
   render() {
