@@ -15,7 +15,7 @@ class  Header extends Component {
             <header className='header'>
                 <div className='logo'>
                     <i class="musica fas fa-solid fa-music fa-2x"></i>
-                    <h1>Deezer Music</h1>
+                    <h1>Bolichon</h1>
                 </div>
                 <div className=''>
                 <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-solid fa-user"></i></button>

@@ -2,11 +2,18 @@ article{
     border: 1px solid black;
     margin: auto;
 }
+ img{
+    width: 100%;
+}
 .hidden{
     display: none;
 }
 .show{
     display: block;
+}
+.fila .show{
+    display: flex;
+    flex-direction: column;
 }
 .descButton{
     cursor: pointer;
@@ -20,25 +27,17 @@ article{
     background-color: rgb(59, 59, 117);
     color: white;
 }
+.fila .contentArticle{
+    padding-left: 40px;
+}
 .fila{
     width: 100%;
     padding: 10px;
     background-color: rgb(59, 59, 117);
     color: white;
-    color: lightcoral;
-    text-decoration: underline;
+    display: flex;
+   
 }
-
-.masInfo{
-    color: lightgrey;
-    font-style: italic;
-}
-
-.zoom {
-    transition: transform .2s; /* Animation */
-    margin: 0 auto;
-}
-  
-.zoom:hover {
-    transform: scale(1.08); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.fila img{
+    width: 25%;
 }
