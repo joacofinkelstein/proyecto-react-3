@@ -36,12 +36,12 @@ class Main extends Component {
 
   ordenColumna(){
     this.setState({
-      articleClassName: "columna"
+      articleClassName: "zoom columna"
     })
   }
   ordenFila(){
     this.setState({
-      articleClassName: "fila"
+      articleClassName: "zoom fila"
     })
   }
 

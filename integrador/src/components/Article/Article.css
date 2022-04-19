@@ -27,19 +27,27 @@ img{
 }
 .columna{
     width: 24%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     padding: 10px;
+    margin-bottom: 15px;
     background-color:  rgb(220,20,60);
     color: white;
+    border-radius: 5px;
 }
 .fila .contentArticle{
     padding-left: 40px;
 }
 .fila{
-    width: 100%;
+    width: 90%;
+    margin-bottom: 15px;
     padding: 10px;
     background-color:  rgb(220,20,60);
+    border-radius: 5px;
     color: white;
     display: flex;
+    gap: 5px;
    
 }
 .fila img{
@@ -51,4 +59,12 @@ img{
 }
 .boton{
     margin: 10px;
+}
+
+.zoom {
+    transition: transform .2s; /* Animation */
+}
+  
+.zoom:hover {
+    transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
